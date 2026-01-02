@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { NavLink, Link } from "react-router-dom"; // Use NavLink for active states
 import ContactStrip from "./ContactStrip";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,7 +11,6 @@ const Footer = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Staggered reveal for footer columns and social icons
       gsap.from(".footer-item", {
         y: 40,
         opacity: 0,
@@ -23,7 +23,6 @@ const Footer = () => {
         },
       });
 
-      // Subtle expansion animation for the main logo
       gsap.from(".footer-logo", {
         letterSpacing: "0.5em",
         opacity: 0,
@@ -39,6 +38,18 @@ const Footer = () => {
     return () => ctx.revert();
   }, []);
 
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Modern Active Styling Function
+  const activeStyle = ({ isActive }) =>
+    `text-sm font-light transition-all duration-300 relative py-1 ${
+      isActive
+        ? "opacity-100 border-b border-white" // Style for the active page
+        : "opacity-60 hover:opacity-100" // Style for other pages
+    }`;
+
   return (
     <footer
       ref={footerRef}
@@ -49,87 +60,112 @@ const Footer = () => {
           {/* LEFT: LINKS COLUMNS */}
           <div className="grid grid-cols-2 gap-20 md:gap-32">
             {/* Column 1 */}
-            <div className="footer-item flex flex-col gap-4">
-              <a
-                href="#about"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+            <div className="footer-item flex flex-col gap-4 items-start">
+              <NavLink
+                to="/about"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 About
-              </a>
-              <a
-                href="#models"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+              </NavLink>
+              <NavLink
+                to="/boats"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 Models
-              </a>
-              <a
-                href="#customization"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+              </NavLink>
+              <NavLink
+                to="/customization"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 Customization
-              </a>
-              <a
-                href="#gallery"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+              </NavLink>
+              <NavLink
+                to="/gallery"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 Gallery
-              </a>
+              </NavLink>
             </div>
 
             {/* Column 2 */}
-            <div className="footer-item flex flex-col gap-4">
-              <a
-                href="#blog"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+            <div className="footer-item flex flex-col gap-4 items-start">
+              <NavLink
+                to="/blog"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 Blog
-              </a>
-              <a
-                href="#contact"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+              </NavLink>
+              <NavLink
+                to="/contact"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 Contact
-              </a>
-              <a
-                href="#instagram"
-                className="text-sm font-light hover:opacity-60 transition-opacity"
+              </NavLink>
+              <NavLink
+                to="/instagram-feed"
+                onClick={handleLinkClick}
+                className={activeStyle}
               >
                 Instagram
-              </a>
+              </NavLink>
             </div>
           </div>
 
           {/* RIGHT: LOGO & SOCIALS */}
           <div className="flex flex-col items-start md:items-end gap-10">
-            {/* Using your logo.svg with a white filter */}
-            <img
-              src="/logo.svg"
-              alt="VALOR"
-              className="footer-logo h-8 md:h-10 object-contain brightness-0 invert"
-            />
+            <Link to="/" onClick={handleLinkClick}>
+              <img
+                src="/logo.svg"
+                alt="VALOR"
+                className="footer-logo h-8 md:h-10 object-contain brightness-0 invert"
+              />
+            </Link>
 
             <div className="footer-item flex gap-8 items-center">
-              <a href="#" className="hover:-translate-y-1 transition-transform">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:-translate-y-1 transition-transform"
+              >
                 <img
                   src="/facebook.svg"
                   className="w-6 h-6 invert"
                   alt="Facebook"
                 />
               </a>
-              <a href="#" className="hover:-translate-y-1 transition-transform">
+              <a
+                href="https://www.instagram.com/valorpowerboats?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:-translate-y-1 transition-transform"
+              >
                 <img
                   src="/instagram.svg"
                   className="w-6 h-6 invert"
                   alt="Instagram"
                 />
               </a>
-              <a href="#" className="hover:-translate-y-1 transition-transform">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:-translate-y-1 transition-transform"
+              >
                 <img src="/x.svg" className="w-6 h-6 invert" alt="X" />
               </a>
             </div>
           </div>
         </div>
+
         <ContactStrip />
+
         {/* BOTTOM DIVIDER & COPYRIGHT */}
         <div className="footer-item mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center">
           <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-light opacity-60">
