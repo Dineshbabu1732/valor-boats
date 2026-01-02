@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+
+/* BRAND COLORS */
+/* DELETE this if you have it, it breaks fixed positioning */
+body, #root {
+  overflow-x: hidden;
+  position: relative; /* This can sometimes cause issues with fixed children */
+}
+:root {
+  --color-primary: #0E5A7E;     /* Valor Blue */
+  --color-secondary: #EAF6FB;   /* Light Blue */
+}
+
+/* REMOVE THIS IF YOU HAVE IT */
+#root {
+  overflow: hidden; 
+}
+
+/* ADD THIS TO ENSURE SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
+}
+
+
+
