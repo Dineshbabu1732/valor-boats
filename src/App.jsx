@@ -12,6 +12,7 @@ import GalleryPage from "./pages/GalleryPage";
 import InstagramFeed from "./pages/InstagramFeed";
 import ConfiguratorPage from "./pages/ConfiguratorPage";
 import ChangeModelPage from "./pages/ChangeModelPage";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 // If you have separate page files, import them here
 // import GalleryPage from "./pages/GalleryPage";
@@ -60,6 +61,7 @@ function App() {
 
       <Footer />
       <ScrollToTop />
+      <WhatsAppButton />
     </div>
   );
 }
