@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router";
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -57,9 +58,11 @@ const Hero = () => {
           </p>
 
           <div className="hero-content-item">
-            <button className="bg-[#006699] hover:bg-[#005580] text-white px-8 py-2.5 rounded-full text-sm font-medium transition-all duration-300 active:scale-95 shadow-lg">
-              Explore Our Boats
-            </button>
+            <Link to="/change-model">
+              <button className="bg-[#006699] hover:bg-[#005580] text-white px-8 py-2.5 rounded-full text-sm font-medium transition-all duration-300 active:scale-95 shadow-lg">
+                Explore Our Boats
+              </button>
+            </Link>
           </div>
         </div>
       </div>
