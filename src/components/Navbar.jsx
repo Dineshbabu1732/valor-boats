@@ -8,13 +8,13 @@ const BOAT_DATA = [
     id: "v38",
     name: "Valor V38",
     tagline: "38 Feet of Performance Dominance",
-    image: "/v38-render.png",
+    image: "/v38-yellow.png",
   },
   {
     id: "v27",
     name: "Valor V27",
     tagline: "Performance in Every Foot",
-    image: "/v27-render.png",
+    image: "/v27-f27.png",
   },
 ];
 
