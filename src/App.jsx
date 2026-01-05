@@ -13,6 +13,8 @@ import InstagramFeed from "./pages/InstagramFeed";
 import ConfiguratorPage from "./pages/ConfiguratorPage";
 import ChangeModelPage from "./pages/ChangeModelPage";
 import WhatsAppButton from "./components/WhatsAppButton";
+import BoatConfigurator from "./components/BoatConfigurator";
+import ValorCatalogue from "./pages/ValorCatalogue";
 
 // If you have separate page files, import them here
 // import GalleryPage from "./pages/GalleryPage";
@@ -34,6 +36,7 @@ function App() {
               <Lineup />
               <Engineering />
               <QuoteForm />
+              {/* <BoatConfigurator /> */}
             </main>
           }
         />
@@ -41,16 +44,12 @@ function App() {
         {/* INDIVIDUAL PAGES */}
         <Route path="/about" element={<About />} />
         <Route path="/boats" element={<Lineup />} />
-        <Route
-          path="/gallery"
-          element={
-            <GalleryPage />
-          }
-        />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/contact" element={<QuoteForm />} />
-        <Route path="/instagram-feed" element={<InstagramFeed />}/>
-        <Route path="/configure/:id" element={<ConfiguratorPage />}/>
-        <Route path="/change-model" element={<ChangeModelPage />}/>
+        <Route path="/instagram-feed" element={<InstagramFeed />} />
+        <Route path="/configure/:id" element={<ConfiguratorPage />} />
+        <Route path="/change-model" element={<ChangeModelPage />} />
+        <Route path="/valor-catalogue" element={<ValorCatalogue />} />
 
         {/* 404 FALLBACK */}
         <Route

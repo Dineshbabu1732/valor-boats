@@ -1,6 +1,27 @@
 @import "tailwindcss";
 
+/* Add this to your CSS file */
+@keyframes wave-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
+.wave-animation {
+  animation: wave-rotate 7s linear infinite;
+}
+
+.wave-animation-slow {
+  animation: wave-rotate 10s linear infinite;
+}
+
+/* This ensures the waves stay hidden until hover */
+.group:hover .wave-rise {
+  bottom: -40% !important;
+}
+
+.group:hover .wave-rise-slow {
+  bottom: -30% !important;
+}
 /* BRAND COLORS */
 /* DELETE this if you have it, it breaks fixed positioning */
 body, #root {
