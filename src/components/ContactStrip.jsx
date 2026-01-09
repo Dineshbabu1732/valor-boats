@@ -66,7 +66,7 @@ const ContactStrip = () => {
                     href="mailto:info@valorboats.com"
                     className="text-white text-lg font-light hover:opacity-70 transition-opacity block"
                   >
-                    info@valorboats.com
+                    valorboats@hotmail.com
                   </a>
                 </div>
               </div>
