@@ -49,84 +49,113 @@ const ValorDeepCatalogue = () => {
 
     gsap.to(boatRefs.current[index], {
       duration: 0.6,
-      rotateY: xPos * 20,
-      rotateX: -yPos * 20,
+      rotateY: xPos * 25,
+      rotateX: -yPos * 25,
       transformPerspective: 1200,
       ease: "power1.out",
     });
   };
 
   return (
-    <div ref={containerRef} className="bg-white text-black">
+    <div ref={containerRef} className="bg-white text-black font-inter">
       {/* V38 SECTION */}
       <section
-        className="boat-section py-24 px-10 border-b border-gray-100"
+        className="boat-section py-24 px-10 border-b border-gray-100 overflow-hidden"
         onMouseMove={(e) => handleMouseMove(e, 0)}
       >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center mb-24">
             <div className="reveal-block">
-              <span className="text-xs font-black uppercase tracking-[0.5em] text-blue-600 mb-6 block">
+              <span className="text-xs font-black uppercase tracking-[0.5em] text-blue-600 mb-6 block font-poppins">
                 Elite Catamaran Series
               </span>
-              <h2 className="text-8xl font-black italic uppercase tracking-tighter mb-8 leading-[0.85]">
+              <h2 className="text-7xl md:text-8xl font-black italic uppercase tracking-tighter mb-8 leading-[0.85] font-poppins">
                 Valor V38
               </h2>
               <p className="text-xl text-gray-500 leading-relaxed mb-10">
                 The flagship of the Valor fleet. Designed for those who refuse
-                to compromise between luxury and lethal performance. The V38's
-                aerodynamic tunnel design creates a cushion of air, allowing the
-                boat to literally fly over open water.
+                to compromise between luxury and lethal performance. Featuring a
+                vacuum-infused hull for superior strength and durability.
               </p>
-              <div className="grid grid-cols-2 gap-8 mb-12 border-t border-gray-100 pt-10">
+
+              {/* V38 TECH SPECS GRID */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-4 mb-12 border-t border-gray-100 pt-10">
                 <div>
-                  <h4 className="text-3xl font-black">100+</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
-                    Top Speed (MPH)
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-3xl font-black">1000</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
-                    Total Horsepower
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-3xl font-black">38' 3"</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    38' 3"
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
                     Length Overall
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-black">8</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
-                    Passenger Capacity
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    10' 6"
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Beam
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    1,600 KG
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Bare Hull Weight
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    190 GAL
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Fuel (2x85)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    1,000 HP
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Max Power
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    8
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Seating Capacity
                   </p>
                 </div>
               </div>
             </div>
+
             <div className="relative">
               <img
                 ref={(el) => (boatRefs.current[0] = el)}
                 src="/v38-yellow.png"
-                className="w-full z-10 relative drop-shadow-2xl"
-                alt="V38"
+                className="w-full z-10 relative drop-shadow-2xl pointer-events-none"
+                alt="Valor V38 High Performance Boat"
               />
+              {/* Background Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-50/50 rounded-full blur-[120px] -z-10" />
             </div>
           </div>
         </div>
 
-        {/* Feature strip for V38 */}
-        <div className="feature-strip flex gap-20 whitespace-nowrap opacity-10">
+        {/* Dynamic Feature strip for V38 */}
+        <div className="feature-strip flex gap-20 whitespace-nowrap opacity-5 select-none">
           {[
             "MERCURY RACING 500R",
             "CARBON INFUSED HULL",
-            "SIMRAD DUAL DASH",
-            "8 PASSENGER COCKPIT",
+            "VACUUM INFUSED STRENGTH",
+            "DUAL FUEL SYSTEM",
+            "AERODYNAMIC TUNNEL",
           ].map((text) => (
             <span
               key={text}
-              className="text-8xl font-black italic uppercase tracking-tighter"
+              className="text-8xl font-black italic uppercase tracking-tighter font-poppins"
             >
               {text}
             </span>
@@ -140,51 +169,78 @@ const ValorDeepCatalogue = () => {
         onMouseMove={(e) => handleMouseMove(e, 1)}
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center mb-24 lg:flex-row-reverse">
+          <div className="grid lg:grid-cols-2 gap-20 items-center mb-24">
             <div className="relative order-2 lg:order-1">
               <img
                 ref={(el) => (boatRefs.current[1] = el)}
                 src="/v27-f27.png"
-                className="w-full z-10 relative drop-shadow-2xl"
-                alt="V27"
+                className="w-full z-10 relative drop-shadow-2xl pointer-events-none"
+                alt="Valor V27 Widebody"
               />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-yellow-50/50 rounded-full blur-[120px] -z-10" />
             </div>
+
             <div className="reveal-block order-1 lg:order-2">
-              <span className="text-xs font-black uppercase tracking-[0.5em] text-yellow-500 mb-6 block">
+              <span className="text-xs font-black uppercase tracking-[0.5em] text-yellow-600 mb-6 block font-poppins">
                 Agile Widebody Series
               </span>
-              <h2 className="text-8xl font-black italic uppercase tracking-tighter mb-8 leading-[0.85]">
+              <h2 className="text-7xl md:text-8xl font-black italic uppercase tracking-tighter mb-8 leading-[0.85] font-poppins">
                 Valor V27
               </h2>
               <p className="text-xl text-gray-500 leading-relaxed mb-10">
                 Precision engineering packed into a 27-foot frame. The V27
-                Widebody offers a footprint that rivals larger vessels while
-                maintaining the agility of a race boat. It is the perfect entry
-                point into the world of high-performance marine power.
+                Widebody offers vacuum-infused hull construction for a lighter,
+                faster, and more rigid vessel that maintains race-boat agility.
               </p>
-              <div className="grid grid-cols-2 gap-8 mb-12 border-t border-gray-200 pt-10">
+
+              {/* V27 TECH SPECS GRID */}
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-4 mb-12 border-t border-gray-200 pt-10">
                 <div>
-                  <h4 className="text-3xl font-black">90+</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
-                    Projected Speed (MPH)
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-3xl font-black">600</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
-                    Total Horsepower
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-3xl font-black">27' 0"</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    27' 0"
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
                     Length Overall
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-black">6</h4>
-                  <p className="text-[10px] uppercase font-bold text-gray-400">
-                    Passenger Capacity
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    9' 0"
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Beam
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    850 KG
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Bare Hull Weight
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    110 GAL
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Fuel (2x55)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    600 HP
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Engine (Twin 300)
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-2xl font-black font-poppins tracking-tight">
+                    5
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
+                    Seating Capacity
                   </p>
                 </div>
               </div>
@@ -192,17 +248,18 @@ const ValorDeepCatalogue = () => {
           </div>
         </div>
 
-        {/* Feature strip for V27 */}
-        <div className="feature-strip flex gap-20 whitespace-nowrap opacity-10">
+        {/* Dynamic Feature strip for V27 */}
+        <div className="feature-strip flex gap-20 whitespace-nowrap opacity-5 select-none">
           {[
-            "TWIN 300R PROPULSION",
-            "9FT BEAM WIDEBODY",
-            "COMPOSITE CORE CONSTRUCTION",
-            "HIGH PERFORMANCE STEERING",
+            "TWIN 300R OUTBOARDS",
+            "WIDEBODY PERFORMANCE",
+            "VACUUM INFUSED HULL",
+            "RACE AGILITY",
+            "DUBAI CRAFTED",
           ].map((text) => (
             <span
               key={text}
-              className="text-8xl font-black italic uppercase tracking-tighter"
+              className="text-8xl font-black italic uppercase tracking-tighter font-poppins"
             >
               {text}
             </span>
